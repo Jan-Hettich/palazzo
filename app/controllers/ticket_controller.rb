@@ -19,4 +19,7 @@ class TicketController < ApplicationController
 		end
 		@active_tickets
 	end
+
+	def winner
+	end
 end

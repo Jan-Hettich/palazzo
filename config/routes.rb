@@ -10,8 +10,9 @@ RailsStarter::Application.routes.draw do
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
 
-  match ':play' => 'play#entry'
-  match ':tickets' => 'ticket#index'
+  match 'play' => 'play#entry'
+  match 'tickets' => 'ticket#index'
+  match 'winner' => 'ticket#winner'
   get ':controller(/:action(/:id))'
   root :to => 'play#entry'
 
