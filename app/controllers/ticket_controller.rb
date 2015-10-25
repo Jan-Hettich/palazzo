@@ -13,7 +13,7 @@ class TicketController < ApplicationController
 		txns.each do |t|
 			source_address = t["inputs"][0]["prev_out"]["addr"]
 			transaction_hash = t["hash"]
-			amount = t["balance"]
+			amount = t["result"]
 			spent = t["out"][0]["spent"]
 			@active_tickets << Ticket.new(source_address, transaction_hash, amount, spent) unless spent
 		end
