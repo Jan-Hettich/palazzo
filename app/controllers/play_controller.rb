@@ -19,6 +19,7 @@ class PlayController < ApplicationController
 
 	def callback
 		p params
+		logger.info params.to_s
 		render text: '*ok*' and return
 	end
 end
