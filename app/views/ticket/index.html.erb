@@ -5,13 +5,19 @@
 		<th>Source Address</th>
 		<th>Transaction Hash</th>
 		<th>Amount</th>
+		<!--
+		<th>Spent?</th>
+		-->
 	</tr>
 
-<% @tickets.each do |ticket| %>
+<% @active_tickets.each do |ticket| %>
 	<tr>
 		<td><%= ticket.source_address %></td>
 		<td><%= ticket.transaction_hash %></td>
 		<td><%= ticket.amount %></td>
+		<!--
+		<td><%= ticket.spent ? 'Y' : 'N' %>
+		-->
 	<tr>
 <% end %>
 

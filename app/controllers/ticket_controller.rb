@@ -9,14 +9,14 @@ class TicketController < ApplicationController
 		uri = 'https://blockchain.info/multiaddr?active=' + xpub_key
 		response = open(uri).read
 		txns = JSON.parse(response)["txs"]
-		@tickets = []
+		@active_tickets = []
 		txns.each do |t|
-			byebug
 			source_address = t["inputs"][0]["prev_out"]["addr"]
 			transaction_hash = t["hash"]
 			amount = t["balance"]
-			@tickets << Ticket.new(source_address, transaction_hash, amount)
+			spent = t["out"][0]["spent"]
+			@active_tickets << Ticket.new(source_address, transaction_hash, amount, spent) unless spent
 		end
-		@tickets
+		@active_tickets
 	end
 end
