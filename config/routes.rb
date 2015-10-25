@@ -10,10 +10,10 @@ RailsStarter::Application.routes.draw do
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
 
-  match 'play' => 'play#entry'
+  match ':play' => 'play#entry'
 
   get ':controller(/:action(/:id))'
-  root :to => 'say#hello'
+  root :to => 'play#entry'
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
